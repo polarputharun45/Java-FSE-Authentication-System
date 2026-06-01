@@ -43,45 +43,7 @@ async function registerUser() {
 // =====================
 // LOGIN USER
 // =====================
-// =====================
-// RESET PASSWORD
-// =====================
 
-async function resetPassword() {
-
-    const user = {
-        otp: document.getElementById("otp").value,
-        password: document.getElementById("newPassword").value
-    };
-
-    try {
-
-        const response = await fetch(
-            "http://localhost:8080/api/auth/reset-password",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            }
-        );
-
-        const result = await response.text();
-
-        alert(result);
-
-        if(result === "Password Reset Successful") {
-            window.location.href = "login.html";
-        }
-
-    } catch(error) {
-
-        alert("Error Occurred!");
-
-        console.log(error);
-    }
-}
 async function loginUser() {
 
     const user = {
@@ -147,8 +109,10 @@ async function forgotPassword() {
 
         alert(result);
 
-        if(result === "Email Verified") {
-            window.location.href = "reset-password.html";
+        if(result === "OTP Sent To Email") {
+
+            window.location.href =
+                "reset-password.html";
         }
 
     } catch(error) {
@@ -157,4 +121,59 @@ async function forgotPassword() {
 
         console.log(error);
     }
+}
+
+
+// =====================
+// RESET PASSWORD
+// =====================
+
+async function resetPassword() {
+
+    const user = {
+        otp: document.getElementById("otp").value,
+        password: document.getElementById("newPassword").value
+    };
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/api/auth/reset-password",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            }
+        );
+
+        const result = await response.text();
+
+        alert(result);
+
+        if(result === "Password Reset Successful") {
+
+            window.location.href =
+                "login.html";
+        }
+
+    } catch(error) {
+
+        alert("Error Occurred!");
+
+        console.log(error);
+    }
+}
+
+
+// =====================
+// LOGOUT
+// =====================
+
+function logoutUser() {
+
+    alert("Logged Out Successfully");
+
+    window.location.href = "login.html";
 }

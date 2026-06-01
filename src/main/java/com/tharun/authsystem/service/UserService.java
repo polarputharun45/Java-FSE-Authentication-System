@@ -16,6 +16,9 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    private EmailService emailService;
+
     private String generatedOtp;
     private String resetEmail;
 
@@ -56,11 +59,12 @@ public class UserService {
 
         resetEmail = email;
 
-        System.out.println(
-                "Generated OTP : " + generatedOtp
+        emailService.sendOtpEmail(
+                email,
+                generatedOtp
         );
 
-        return "OTP Generated";
+        return "OTP Sent To Email";
     }
 
     public String resetPassword(
