@@ -64,23 +64,23 @@ Gmail SMTP
 
 ### Login Page
 
-(Add Screenshot)
+![Login Page](screenshots/loginpage.png)
 
 ### Forgot Password
 
-(Add Screenshot)
+![Forgot Password](screenshots/forgotpassword.png)
 
 ### OTP Email
 
-(Add Screenshot)
+![OTP Email](screenshots/otps.png)
 
 ### Reset Password
 
-(Add Screenshot)
+![Reset Password](screenshots/otpreset.png)
 
 ### Dashboard
 
-(Add Screenshot)
+![Dashboard](screenshots/dashboard.png)
 
 ## Author
 
